@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ferretería de la Minería – Puerto Maldonado</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <header id="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <div class="logo-icon">
+          <i class="fas fa-hammer"></i>
+          <i class="fas fa-pickaxe logo-pick"></i>
+        </div>
+        <div class="logo-text">
+          <span class="logo-title">FERRETERÍA</span>
+          <span class="logo-sub">DE LA MINERÍA</span>
+          <span class="logo-city">PUERTO MALDONADO</span>
+        </div>
+      </div>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#inicio" class="nav-link active">INICIO</a>
+        <a href="#nosotros" class="nav-link">NOSOTROS</a>
+        <a href="#productos" class="nav-link">PRODUCTOS</a>
+        <a href="#servicios" class="nav-link">SERVICIOS</a>
+        <a href="#contacto" class="nav-link">CONTACTO</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/51997510565?text=Hola%2C%20me%20interesa%20conocer%20sus%20productos%20y%20servicios." 
+           target="_blank" 
+           class="whatsapp-btn" 
+           id="whatsappBtn"
+           title="Contáctanos por WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+          <span>WhatsApp</span>
+        </a>
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="inicio">
+    <div class="hero-overlay"></div>
+    <div class="hero-particles" id="heroParticles"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow" data-aos="fade-up">⛏ Madre de Dios, Perú</p>
+      <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+        SOLUCIONES PARA<br>
+        <span class="hero-highlight">MINERÍA EN<br>PUERTO MALDONADO</span>
+      </h1>
+      <p class="hero-desc" data-aos="fade-up" data-aos-delay="200">
+        Herramientas, maquinaria pesada y equipos industriales<br>
+        para minería y construcción en Madre de Dios.
+      </p>
+      <div class="hero-btns" data-aos="fade-up" data-aos-delay="300">
+        <a href="#productos" class="btn-primary">VER PRODUCTOS →</a>
+        <a href="https://wa.me/51997510565?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n." target="_blank" class="btn-secondary">
+          <i class="fab fa-whatsapp"></i> COTIZAR AHORA
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>SCROLL</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ========== STATS BAR ========== -->
+  <section class="stats-bar">
+    <div class="stats-container">
+      <div class="stat-item" data-target="15">
+        <span class="stat-number" id="stat1">0</span><span class="stat-unit">+</span>
+        <p class="stat-label">Años de experiencia</p>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item" data-target="500">
+        <span class="stat-number" id="stat2">0</span><span class="stat-unit">+</span>
+        <p class="stat-label">Productos disponibles</p>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item" data-target="1200">
+        <span class="stat-number" id="stat3">0</span><span class="stat-unit">+</span>
+        <p class="stat-label">Clientes satisfechos</p>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item" data-target="24">
+        <span class="stat-number" id="stat4">0</span><span class="stat-unit">h</span>
+        <p class="stat-label">Atención al cliente</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CATEGORÍAS DESTACADAS ========== -->
+  <section class="categories" id="productos">
+    <div class="section-header">
+      <p class="section-eyebrow">LO QUE OFRECEMOS</p>
+      <h2 class="section-title">CATEGORÍAS DESTACADAS</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="categories-grid">
+      <div class="cat-card" data-category="maquinaria">
+        <div class="cat-img" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800')"></div>
+        <div class="cat-overlay"></div>
+        <div class="cat-content">
+          <div class="cat-icon"><i class="fas fa-truck-monster"></i></div>
+          <h3>MAQUINARIA PESADA</h3>
+          <p>Equipos para trabajos mineros de alto rendimiento.</p>
+          <span class="cat-arrow">→</span>
+        </div>
+      </div>
+
+      <div class="cat-card" data-category="seguridad">
+        <div class="cat-img" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800')"></div>
+        <div class="cat-overlay"></div>
+        <div class="cat-content">
+          <div class="cat-icon"><i class="fas fa-hard-hat"></i></div>
+          <h3>EQUIPOS DE SEGURIDAD</h3>
+          <p>Protección garantizada para cada operación minera.</p>
+          <span class="cat-arrow">→</span>
+        </div>
+      </div>
+
+      <div class="cat-card" data-category="herramientas">
+        <div class="cat-img" style="background-image: url('https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=800')"></div>
+        <div class="cat-overlay"></div>
+        <div class="cat-content">
+          <div class="cat-icon"><i class="fas fa-tools"></i></div>
+          <h3>HERRAMIENTAS INDUSTRIALES</h3>
+          <p>Herramientas resistentes para la minería y construcción.</p>
+          <span class="cat-arrow">→</span>
+        </div>
+      </div>
+
+      <div class="cat-card" data-category="electrico">
+        <div class="cat-img" style="background-image: url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800')"></div>
+        <div class="cat-overlay"></div>
+        <div class="cat-content">
+          <div class="cat-icon"><i class="fas fa-bolt"></i></div>
+          <h3>MATERIALES ELÉCTRICOS</h3>
+          <p>Cables, motores y tableros para instalaciones industriales.</p>
+          <span class="cat-arrow">→</span>
+        </div>
+      </div>
+
+      <div class="cat-card" data-category="hidraulica">
+        <div class="cat-img" style="background-image: url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800')"></div>
+        <div class="cat-overlay"></div>
+        <div class="cat-content">
+          <div class="cat-icon"><i class="fas fa-tint"></i></div>
+          <h3>SISTEMAS HIDRÁULICOS</h3>
+          <p>Bombas, mangueras y conexiones de alta presión.</p>
+          <span class="cat-arrow">→</span>
+        </div>
+      </div>
+
+      <div class="cat-card" data-category="consumibles">
+        <div class="cat-img" style="background-image: url('https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?w=800')"></div>
+        <div class="cat-overlay"></div>
+        <div class="cat-content">
+          <div class="cat-icon"><i class="fas fa-cogs"></i></div>
+          <h3>CONSUMIBLES Y REPUESTOS</h3>
+          <p>Stocks permanentes para minimizar tiempos de parada.</p>
+          <span class="cat-arrow">→</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== NOSOTROS ========== -->
+  <section class="about" id="nosotros">
+    <div class="about-container">
+      <div class="about-text">
+        <p class="section-eyebrow">QUIÉNES SOMOS</p>
+        <h2 class="section-title">LÍDERES EN SUMINISTROS<br><span class="highlight">MINEROS</span></h2>
+        <p class="about-desc">
+          Somos la ferretería industrial líder de Puerto Maldonado, Madre de Dios. Con más de 15 años 
+          abasteciendo a empresas mineras, constructoras y operadores independientes con los mejores 
+          equipos y herramientas del mercado.
+        </p>
+        <ul class="about-list">
+          <li><i class="fas fa-check-circle"></i> Stock permanente de más de 500 productos</li>
+          <li><i class="fas fa-check-circle"></i> Marcas certificadas y homologadas</li>
+          <li><i class="fas fa-check-circle"></i> Asesoría técnica especializada</li>
+          <li><i class="fas fa-check-circle"></i> Entrega a campamentos mineros</li>
+          <li><i class="fas fa-check-circle"></i> Cotizaciones por WhatsApp al instante</li>
+        </ul>
+        <a href="https://wa.me/51997510565" target="_blank" class="btn-primary">
+          <i class="fab fa-whatsapp"></i> CONTACTAR ASESOR
+        </a>
+      </div>
+      <div class="about-visual">
+        <div class="about-img-frame">
+          <div class="about-img" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800')"></div>
+          <div class="about-badge">
+            <span class="badge-num">15+</span>
+            <span class="badge-txt">Años de<br>experiencia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICIOS ========== -->
+  <section class="services" id="servicios">
+    <div class="section-header">
+      <p class="section-eyebrow">LO QUE HACEMOS</p>
+      <h2 class="section-title">NUESTROS SERVICIOS</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-warehouse"></i></div>
+        <h3>VENTA DE EQUIPOS</h3>
+        <p>Venta directa de maquinaria, herramientas y materiales industriales con garantía de fábrica.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-truck"></i></div>
+        <h3>DELIVERY A CAMPAMENTOS</h3>
+        <p>Llevamos tus pedidos directamente a tu campamento o faena minera en toda la región Madre de Dios.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-headset"></i></div>
+        <h3>ASESORÍA TÉCNICA</h3>
+        <p>Nuestros especialistas te ayudan a elegir el equipo correcto para cada tipo de operación.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+        <h3>COTIZACIONES EXPRESS</h3>
+        <p>Envía tu lista de requerimientos y recibe tu cotización en menos de 2 horas vía WhatsApp.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRODUCTOS DESTACADOS ========== -->
+  <section class="featured-products">
+    <div class="section-header">
+      <p class="section-eyebrow">CATÁLOGO</p>
+      <h2 class="section-title">PRODUCTOS DESTACADOS</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="product-filters">
+      <button class="filter-btn active" data-filter="all">TODOS</button>
+      <button class="filter-btn" data-filter="maquinaria">MAQUINARIA</button>
+      <button class="filter-btn" data-filter="seguridad">SEGURIDAD</button>
+      <button class="filter-btn" data-filter="herramientas">HERRAMIENTAS</button>
+      <button class="filter-btn" data-filter="electrico">ELÉCTRICO</button>
+    </div>
+
+    <div class="products-grid" id="productsGrid">
+      <div class="product-card" data-filter="maquinaria">
+        <div class="product-badge">OFERTA</div>
+        <div class="product-img"><i class="fas fa-pump-soap"></i></div>
+        <div class="product-info">
+          <span class="product-cat">Maquinaria</span>
+          <h4>Motobomba 3" Honda GX200</h4>
+          <p>Bomba de agua de alta presión para drenaje en operaciones mineras.</p>
+          <div class="product-footer">
+            <span class="product-price">S/ 1,850</span>
+            <a href="https://wa.me/51997510565?text=Quiero%20información%20sobre%20Motobomba%203" target="_blank" class="product-btn">
+              <i class="fab fa-whatsapp"></i> Consultar
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-filter="seguridad">
+        <div class="product-img"><i class="fas fa-hard-hat"></i></div>
+        <div class="product-info">
+          <span class="product-cat">Seguridad</span>
+          <h4>Casco MSA V-Gard Clase E</h4>
+          <p>Protección de alto impacto, aprobado para minería subterránea y superficial.</p>
+          <div class="product-footer">
+            <span class="product-price">S/ 89</span>
+            <a href="https://wa.me/51997510565?text=Quiero%20información%20sobre%20Casco%20MSA" target="_blank" class="product-btn">
+              <i class="fab fa-whatsapp"></i> Consultar
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-filter="herramientas">
+        <div class="product-badge">NUEVO</div>
+        <div class="product-img"><i class="fas fa-drill"></i></div>
+        <div class="product-info">
+          <span class="product-cat">Herramientas</span>
+          <h4>Rotomartillo Bosch GBH 2-26</h4>
+          <p>Martillo perforador combinado 800W, ideal para trabajos en roca y concreto.</p>
+          <div class="product-footer">
+            <span class="product-price">S/ 690</span>
+            <a href="https://wa.me/51997510565?text=Quiero%20información%20sobre%20Rotomartillo%20Bosch" target="_blank" class="product-btn">
+              <i class="fab fa-whatsapp"></i> Consultar
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-filter="electrico">
+        <div class="product-img"><i class="fas fa-bolt"></i></div>
+        <div class="product-info">
+          <span class="product-cat">Eléctrico</span>
+          <h4>Generador 7500W Kipor</h4>
+          <p>Generador monofásico para suministro eléctrico en zonas remotas.</p>
+          <div class="product-footer">
+            <span class="product-price">S/ 3,200</span>
+            <a href="https://wa.me/51997510565?text=Quiero%20información%20sobre%20Generador%20Kipor" target="_blank" class="product-btn">
+              <i class="fab fa-whatsapp"></i> Consultar
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-filter="seguridad">
+        <div class="product-img"><i class="fas fa-lungs"></i></div>
+        <div class="product-info">
+          <span class="product-cat">Seguridad</span>
+          <h4>Respirador 3M 6200 + Filtros</h4>
+          <p>Protección respiratoria contra polvos, humos y vapores en minas.</p>
+          <div class="product-footer">
+            <span class="product-price">S/ 145</span>
+            <a href="https://wa.me/51997510565?text=Quiero%20información%20sobre%20Respirador%203M" target="_blank" class="product-btn">
+              <i class="fab fa-whatsapp"></i> Consultar
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-filter="herramientas">
+        <div class="product-img"><i class="fas fa-wrench"></i></div>
+        <div class="product-info">
+          <span class="product-cat">Herramientas</span>
+          <h4>Amoladora Angular 9" Dewalt</h4>
+          <p>Esmeriladora de alto torque para corte y desbaste en metal y roca.</p>
+          <div class="product-footer">
+            <span class="product-price">S/ 420</span>
+            <a href="https://wa.me/51997510565?text=Quiero%20información%20sobre%20Amoladora%20Dewalt" target="_blank" class="product-btn">
+              <i class="fab fa-whatsapp"></i> Consultar
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="see-all-wrap">
+      <a href="https://wa.me/51997510565?text=Hola%2C%20quiero%20ver%20el%20cat%C3%A1logo%20completo." target="_blank" class="btn-primary">
+        VER CATÁLOGO COMPLETO <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== CONTACTO ========== -->
+  <section class="contact" id="contacto">
+    <div class="section-header">
+      <p class="section-eyebrow">ESTAMOS AQUÍ</p>
+      <h2 class="section-title">CONTÁCTANOS</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="contact-container">
+      <div class="contact-info">
+        <h3>Información de Contacto</h3>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <strong>Dirección</strong>
+            <p>Jr. Fitzcarrald 456, Puerto Maldonado<br>Madre de Dios, Perú</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+          <div>
+            <strong>Teléfono</strong>
+            <p>+51 082 572 000</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+          <div>
+            <strong>WhatsApp</strong>
+            <p>+51 987 654 321</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-clock"></i></div>
+          <div>
+            <strong>Horario</strong>
+            <p>Lun – Sáb: 7:00 am – 7:00 pm<br>Dom: 8:00 am – 1:00 pm</p>
+          </div>
+        </div>
+        <a href="https://wa.me/51997510565?text=Hola%2C%20me%20gustaría%20más%20información." 
+           target="_blank" class="whatsapp-cta">
+          <i class="fab fa-whatsapp"></i>
+          ESCRIBIR POR WHATSAPP
+        </a>
+      </div>
+
+      <div class="contact-form-wrap">
+        <h3>Envíanos un mensaje</h3>
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nombre completo</label>
+              <input type="text" id="formName" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-group">
+              <label>Teléfono / WhatsApp</label>
+              <input type="tel" id="formPhone" placeholder="+51 000 000 000" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Correo electrónico</label>
+            <input type="email" id="formEmail" placeholder="tu@correo.com" />
+          </div>
+          <div class="form-group">
+            <label>Mensaje</label>
+            <textarea id="formMessage" rows="4" placeholder="¿En qué podemos ayudarte?" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary form-submit">
+            ENVIAR MENSAJE <i class="fas fa-paper-plane"></i>
+          </button>
+          <div class="form-success" id="formSuccess">
+            ✅ ¡Mensaje enviado! Nos contactaremos pronto.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="logo-icon footer-logo-icon">
+          <i class="fas fa-hammer"></i>
+        </div>
+        <div>
+          <span class="logo-title">FERRETERÍA DE LA MINERÍA</span>
+          <span class="footer-tagline">Puerto Maldonado • Madre de Dios</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#productos">Productos</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://wa.me/51997510565" target="_blank" class="social-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Ferretería de la Minería – Puerto Maldonado. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- ========== FLOATING WHATSAPP ========== -->
+  <a href="https://wa.me/51997510565?text=Hola%2C%20necesito%20información%20sobre%20sus%20productos." 
+     target="_blank" 
+     class="floating-whatsapp" 
+     id="floatingWhatsapp"
+     title="Chat por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span class="floating-tooltip">¡Escríbenos!</span>
+  </a>
+
+  <!-- ========== BACK TO TOP ========== -->
+  <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
