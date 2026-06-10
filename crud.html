@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Productos – Ferretería de la Minería</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+
+    :root {
+      --negro: #0a0a0a;
+      --carbón: #141414;
+      --plomo: #1e1e1e;
+      --borde: #2a2a2a;
+      --dorado: #d4a017;
+      --dorado-claro: #f0bc30;
+      --texto: #e8e8e8;
+      --texto-suave: #888;
+      --rojo: #c0392b;
+      --verde: #27ae60;
+      --azul: #2980b9;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--negro);
+      color: var(--texto);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--carbón);
+      border-bottom: 2px solid var(--dorado);
+      padding: 14px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header .logo {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--dorado);
+      letter-spacing: 1px;
+    }
+    header .logo span { color: var(--texto); }
+    header a {
+      color: var(--texto-suave);
+      text-decoration: none;
+      font-size: 0.85rem;
+      border: 1px solid var(--borde);
+      padding: 6px 14px;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+    header a:hover { border-color: var(--dorado); color: var(--dorado); }
+
+    /* CONTENEDOR */
+    .container { max-width: 1100px; margin: 0 auto; padding: 36px 24px; }
+
+    h1 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--dorado);
+      margin-bottom: 4px;
+      letter-spacing: 1px;
+    }
+    .subtitulo {
+      color: var(--texto-suave);
+      font-size: 0.88rem;
+      margin-bottom: 32px;
+    }
+
+    /* FORMULARIO */
+    .form-card {
+      background: var(--carbón);
+      border: 1px solid var(--borde);
+      border-top: 3px solid var(--dorado);
+      border-radius: 8px;
+      padding: 28px;
+      margin-bottom: 36px;
+    }
+    .form-card h2 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.15rem;
+      color: var(--dorado);
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group.full { grid-column: 1 / -1; }
+    label { font-size: 0.8rem; color: var(--texto-suave); text-transform: uppercase; letter-spacing: 0.5px; }
+    input, select, textarea {
+      background: var(--plomo);
+      border: 1px solid var(--borde);
+      color: var(--texto);
+      padding: 10px 14px;
+      border-radius: 5px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--dorado); }
+    textarea { resize: vertical; min-height: 70px; }
+    select option { background: var(--plomo); }
+
+    .form-actions { display: flex; gap: 10px; margin-top: 20px; }
+    .btn {
+      padding: 10px 24px;
+      border: none;
+      border-radius: 5px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.3px;
+    }
+    .btn-primary { background: var(--dorado); color: #000; }
+    .btn-primary:hover { background: var(--dorado-claro); transform: translateY(-1px); }
+    .btn-secondary { background: transparent; color: var(--texto-suave); border: 1px solid var(--borde); }
+    .btn-secondary:hover { border-color: var(--texto-suave); color: var(--texto); }
+
+    /* BARRA DE BÚSQUEDA Y CONTADOR */
+    .tabla-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .tabla-header h2 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.15rem;
+      color: var(--dorado);
+      letter-spacing: 0.5px;
+    }
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .search-box input {
+      width: 220px;
+      padding: 8px 12px;
+    }
+    .contador {
+      font-size: 0.82rem;
+      color: var(--texto-suave);
+      background: var(--plomo);
+      border: 1px solid var(--borde);
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    /* TABLA */
+    .tabla-card {
+      background: var(--carbón);
+      border: 1px solid var(--borde);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    table { width: 100%; border-collapse: collapse; }
+    thead { background: var(--plomo); }
+    thead th {
+      padding: 13px 16px;
+      text-align: left;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--dorado);
+      font-weight: 600;
+      border-bottom: 1px solid var(--borde);
+    }
+    tbody tr {
+      border-bottom: 1px solid var(--borde);
+      transition: background 0.15s;
+    }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--plomo); }
+    tbody td {
+      padding: 13px 16px;
+      font-size: 0.88rem;
+      vertical-align: middle;
+    }
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .badge-maq  { background: #1a2a3a; color: #5b9bd5; }
+    .badge-seg  { background: #1a2a1a; color: #5bc278; }
+    .badge-her  { background: #2a1f10; color: #d4860a; }
+    .badge-ele  { background: #1f1a2a; color: #a078d4; }
+    .badge-hid  { background: #0f1f2a; color: #50b8d4; }
+    .badge-con  { background: #2a1a1a; color: #d47050; }
+
+    .precio { color: var(--dorado); font-weight: 600; }
+    .stock-ok  { color: var(--verde); font-weight: 600; }
+    .stock-low { color: #e67e22; font-weight: 600; }
+    .stock-out { color: var(--rojo); font-weight: 600; }
+
+    .acciones { display: flex; gap: 8px; }
+    .btn-edit {
+      background: var(--azul);
+      color: #fff;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    .btn-edit:hover { opacity: 0.8; }
+    .btn-del {
+      background: var(--rojo);
+      color: #fff;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    .btn-del:hover { opacity: 0.8; }
+
+    /* VACÍO */
+    .vacio {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--texto-suave);
+    }
+    .vacio .icono { font-size: 3rem; margin-bottom: 12px; }
+    .vacio p { font-size: 0.9rem; }
+
+    /* TOAST */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--carbón);
+      border-left: 4px solid var(--dorado);
+      color: var(--texto);
+      padding: 14px 20px;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 999;
+      max-width: 300px;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .toast.success { border-color: var(--verde); }
+    .toast.error   { border-color: var(--rojo); }
+
+    /* MODAL CONFIRMACIÓN */
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      z-index: 900;
+      align-items: center;
+      justify-content: center;
+    }
+    .overlay.active { display: flex; }
+    .modal {
+      background: var(--carbón);
+      border: 1px solid var(--borde);
+      border-top: 3px solid var(--rojo);
+      border-radius: 8px;
+      padding: 28px;
+      max-width: 380px;
+      width: 90%;
+    }
+    .modal h3 { font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; color: var(--rojo); margin-bottom: 10px; }
+    .modal p { font-size: 0.88rem; color: var(--texto-suave); margin-bottom: 20px; line-height: 1.5; }
+    .modal-actions { display: flex; gap: 10px; justify-content: flex-end; }
+
+    @media(max-width:700px) {
+      .form-grid { grid-template-columns: 1fr; }
+      .form-group.full { grid-column: 1; }
+      table { font-size: 0.8rem; }
+      thead th, tbody td { padding: 10px 10px; }
+      .acciones { flex-direction: column; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">⛏ FERRETERÍA <span>DE LA MINERÍA</span></div>
+  <a href="index.html">← Volver al sitio</a>
+</header>
+
+<div class="container">
+  <h1>GESTIÓN DE PRODUCTOS</h1>
+  <p class="subtitulo">Panel CRUD — Crear, Ver, Editar y Eliminar productos del catálogo</p>
+
+  <!-- ══════════════ FORMULARIO ══════════════ -->
+  <div class="form-card">
+    <h2 id="form-titulo">➕ AGREGAR NUEVO PRODUCTO</h2>
+    <div class="form-grid">
+
+      <div class="form-group">
+        <label>Nombre del producto *</label>
+        <input type="text" id="nombre" placeholder="Ej: Motobomba 3' Honda GX200" />
+      </div>
+
+      <div class="form-group">
+        <label>Categoría *</label>
+        <select id="categoria">
+          <option value="">-- Selecciona --</option>
+          <option value="Maquinaria">Maquinaria</option>
+          <option value="Seguridad">Seguridad</option>
+          <option value="Herramientas">Herramientas</option>
+          <option value="Eléctrico">Eléctrico</option>
+          <option value="Hidráulico">Hidráulico</option>
+          <option value="Consumibles">Consumibles</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Precio (S/) *</label>
+        <input type="number" id="precio" placeholder="0.00" min="0" step="0.01" />
+      </div>
+
+      <div class="form-group">
+        <label>Stock (unidades) *</label>
+        <input type="number" id="stock" placeholder="0" min="0" />
+      </div>
+
+      <div class="form-group full">
+        <label>Descripción</label>
+        <textarea id="descripcion" placeholder="Descripción breve del producto..."></textarea>
+      </div>
+
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-primary" onclick="guardarProducto()">💾 GUARDAR PRODUCTO</button>
+      <button class="btn btn-secondary" onclick="limpiarFormulario()">✖ CANCELAR</button>
+    </div>
+  </div>
+
+  <!-- ══════════════ TABLA ══════════════ -->
+  <div class="tabla-header">
+    <h2>📦 LISTA DE PRODUCTOS</h2>
+    <div class="search-box">
+      <input type="text" id="buscar" placeholder="🔍 Buscar producto..." oninput="renderTabla()" style="width:220px"/>
+      <span class="contador" id="contador">0 productos</span>
+    </div>
+  </div>
+
+  <div class="tabla-card">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Producto</th>
+          <th>Categoría</th>
+          <th>Precio</th>
+          <th>Stock</th>
+          <th>Descripción</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ══════════════ MODAL ELIMINAR ══════════════ -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <h3>⚠ ELIMINAR PRODUCTO</h3>
+    <p>¿Estás seguro de que quieres eliminar este producto? Esta acción <strong>no se puede deshacer</strong>.</p>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="cerrarModal()">Cancelar</button>
+      <button class="btn btn-del" onclick="confirmarEliminar()">Sí, eliminar</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+  // ── ESTADO ──────────────────────────────────────────────
+  let productos = JSON.parse(localStorage.getItem('productos_ferreteria')) || [];
+  let modoEdicion = false;
+  let idEdicion = null;
+  let idEliminar = null;
+
+  // Datos de ejemplo si la tabla está vacía
+  if (productos.length === 0) {
+    productos = [
+      { id: Date.now()+1, nombre: 'Motobomba 3" Honda GX200', categoria: 'Maquinaria', precio: 1850, stock: 5, descripcion: 'Bomba de alta presión para drenaje minero.' },
+      { id: Date.now()+2, nombre: 'Casco MSA V-Gard Clase E', categoria: 'Seguridad', precio: 89, stock: 40, descripcion: 'Protección de alto impacto para minería.' },
+      { id: Date.now()+3, nombre: 'Rotomartillo Bosch GBH 2-26', categoria: 'Herramientas', precio: 690, stock: 8, descripcion: 'Martillo perforador 800W para roca y concreto.' },
+      { id: Date.now()+4, nombre: 'Generador 7500W Kipor', categoria: 'Eléctrico', precio: 3200, stock: 3, descripcion: 'Suministro eléctrico para zonas remotas.' },
+      { id: Date.now()+5, nombre: 'Respirador 3M 6200 + Filtros', categoria: 'Seguridad', precio: 145, stock: 0, descripcion: 'Protección contra polvos y vapores.' },
+    ];
+    guardarStorage();
+  }
+
+  // ── STORAGE ─────────────────────────────────────────────
+  function guardarStorage() {
+    localStorage.setItem('productos_ferreteria', JSON.stringify(productos));
+  }
+
+  // ── BADGE CATEGORÍA ─────────────────────────────────────
+  const badgeMap = {
+    'Maquinaria': 'badge-maq', 'Seguridad': 'badge-seg',
+    'Herramientas': 'badge-her', 'Eléctrico': 'badge-ele',
+    'Hidráulico': 'badge-hid', 'Consumibles': 'badge-con'
+  };
+
+  // ── RENDER TABLA ─────────────────────────────────────────
+  function renderTabla() {
+    const buscar = document.getElementById('buscar').value.toLowerCase();
+    const tbody  = document.getElementById('tbody');
+    const filtrados = productos.filter(p =>
+      p.nombre.toLowerCase().includes(buscar) ||
+      p.categoria.toLowerCase().includes(buscar)
+    );
+
+    document.getElementById('contador').textContent = `${filtrados.length} producto${filtrados.length !== 1 ? 's' : ''}`;
+
+    if (filtrados.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="7">
+        <div class="vacio">
+          <div class="icono">📭</div>
+          <p>${buscar ? 'No se encontraron productos con ese criterio.' : 'No hay productos aún. ¡Agrega el primero!'}</p>
+        </div>
+      </td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = filtrados.map((p, i) => {
+      const stockClass = p.stock === 0 ? 'stock-out' : p.stock <= 5 ? 'stock-low' : 'stock-ok';
+      const stockLabel = p.stock === 0 ? '⛔ Sin stock' : p.stock <= 5 ? `⚠ ${p.stock}` : `✔ ${p.stock}`;
+      const badge = badgeMap[p.categoria] || 'badge-con';
+      const desc = p.descripcion || '—';
+      return `
+        <tr>
+          <td style="color:var(--texto-suave)">${i+1}</td>
+          <td><strong>${p.nombre}</strong></td>
+          <td><span class="badge ${badge}">${p.categoria}</span></td>
+          <td class="precio">S/ ${Number(p.precio).toFixed(2)}</td>
+          <td class="${stockClass}">${stockLabel}</td>
+          <td style="color:var(--texto-suave);max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="${desc}">${desc}</td>
+          <td>
+            <div class="acciones">
+              <button class="btn-edit" onclick="editarProducto(${p.id})">✏ Editar</button>
+              <button class="btn-del"  onclick="abrirModal(${p.id})">🗑 Eliminar</button>
+            </div>
+          </td>
+        </tr>`;
+    }).join('');
+  }
+
+  // ── CREATE / UPDATE ──────────────────────────────────────
+  function guardarProducto() {
+    const nombre     = document.getElementById('nombre').value.trim();
+    const categoria  = document.getElementById('categoria').value;
+    const precio     = parseFloat(document.getElementById('precio').value);
+    const stock      = parseInt(document.getElementById('stock').value);
+    const descripcion= document.getElementById('descripcion').value.trim();
+
+    if (!nombre)        return toast('⚠ Escribe el nombre del producto.', 'error');
+    if (!categoria)     return toast('⚠ Selecciona una categoría.', 'error');
+    if (isNaN(precio) || precio < 0) return toast('⚠ Ingresa un precio válido.', 'error');
+    if (isNaN(stock)  || stock < 0)  return toast('⚠ Ingresa un stock válido.', 'error');
+
+    if (modoEdicion) {
+      // UPDATE
+      const idx = productos.findIndex(p => p.id === idEdicion);
+      productos[idx] = { id: idEdicion, nombre, categoria, precio, stock, descripcion };
+      guardarStorage();
+      renderTabla();
+      limpiarFormulario();
+      toast('✅ Producto actualizado correctamente.', 'success');
+    } else {
+      // CREATE
+      productos.push({ id: Date.now(), nombre, categoria, precio, stock, descripcion });
+      guardarStorage();
+      renderTabla();
+      limpiarFormulario();
+      toast('✅ Producto agregado correctamente.', 'success');
+    }
+  }
+
+  // ── READ (editar carga datos) ────────────────────────────
+  function editarProducto(id) {
+    const p = productos.find(p => p.id === id);
+    if (!p) return;
+    document.getElementById('nombre').value      = p.nombre;
+    document.getElementById('categoria').value   = p.categoria;
+    document.getElementById('precio').value      = p.precio;
+    document.getElementById('stock').value       = p.stock;
+    document.getElementById('descripcion').value = p.descripcion || '';
+    document.getElementById('form-titulo').textContent = '✏ EDITAR PRODUCTO';
+    modoEdicion = true;
+    idEdicion   = id;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    toast('📝 Editando producto. Modifica y guarda.', '');
+  }
+
+  // ── DELETE ───────────────────────────────────────────────
+  function abrirModal(id) {
+    idEliminar = id;
+    document.getElementById('overlay').classList.add('active');
+  }
+  function cerrarModal() {
+    idEliminar = null;
+    document.getElementById('overlay').classList.remove('active');
+  }
+  function confirmarEliminar() {
+    productos = productos.filter(p => p.id !== idEliminar);
+    guardarStorage();
+    renderTabla();
+    cerrarModal();
+    toast('🗑 Producto eliminado.', 'error');
+  }
+
+  // ── LIMPIAR FORMULARIO ───────────────────────────────────
+  function limpiarFormulario() {
+    ['nombre','precio','stock','descripcion'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('categoria').value = '';
+    document.getElementById('form-titulo').textContent = '➕ AGREGAR NUEVO PRODUCTO';
+    modoEdicion = false;
+    idEdicion   = null;
+  }
+
+  // ── TOAST ────────────────────────────────────────────────
+  function toast(msg, tipo) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = `toast ${tipo} show`;
+    setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
+  // INIT
+  renderTabla();
+</script>
+</body>
+</html>
